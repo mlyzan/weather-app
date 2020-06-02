@@ -1,0 +1,6 @@
+<div class="day-block">
+    <div class="day"> {{ data.dt_txt | date:'E' }} </div>
+    <div class="icon"><img src="..//../../assets/images/{{data.weather[0].main}}.svg" alt="icon"></div>
+    <div class="degrees">{{ data.main.temp - 273.15 | number:'1.0-0' }} &#176;</div>
+    <div class="cloud"> {{ data.weather[0].main }} </div>
+</div>

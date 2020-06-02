@@ -1,0 +1,53 @@
+.city_block {
+    width: min(98%, 600px);
+    margin: 0 auto;
+    height: min(420px);
+    .today {
+        height: 50%;
+        color: #fff;
+        background-color: #2f2d8b;
+        border-radius: 20px 20px 0 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        .degrees {
+            font-size: 64px;
+        }
+        .cloud {
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .other-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            .humidity {
+                padding: 10px;
+                border-right: 1px solid #898989;
+                font-weight: 300;
+            }
+            .wind {
+                padding: 10px;
+                font-weight: 300;
+            }
+        }
+        .city {
+            border-bottom: 2px solid #898989;
+            font-size: 30px;
+            padding-bottom: 10px;
+        }
+    }
+    .next-days {
+        min-height: 50%;
+        background-color: #fff;
+        color: #898989;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 100px), 1fr));
+        grid-gap: 10px;
+        align-items: center;
+        border-radius: 0 0 20px 20px;
+        padding: 20px;
+        margin-top: 6px;
+    }
+}

@@ -1,0 +1,6 @@
+<div class="search-block">
+    <form class="search-block_form" action="">
+        <input type="text" placeholder="Type location" [(value)]="value" (keyup)="changeInput($event)">
+        <input type="submit" value="Search" (click)="showWeather($event)">
+    </form>
+</div>

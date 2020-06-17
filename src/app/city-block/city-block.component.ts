@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectWeather, selectLoader, selectNextDays } from './../state/weather.selectos';
+import * as select from './../state/weather.selectos';
 import * as actions from '../state/weather.action';
 
 @Component({
@@ -13,18 +13,20 @@ export class CityBlockComponent implements OnInit, OnDestroy{
   data$: Observable<any>;
   nextDays$: Observable<any>;
   loader$: Observable<boolean>;
-  weather$: any;
+  error$: Observable<Error>;
   subscribes: Subscription[] = [];
   constructor(private readonly store: Store) { }
 
   ngOnInit(): void {
-      this.loader$ = this.store.select(selectLoader);
+      this.loader$ = this.store.select(select.selectLoader);
+
+      this.error$ = this.store.select(select.selectError);
 
       this.store.dispatch(actions.getLocation({}));
 
-      this.data$ = this.store.select(selectWeather);
+      this.data$ = this.store.select(select.selectWeather);
 
-      this.nextDays$ = this.store.select(selectNextDays);
+      this.nextDays$ = this.store.select(select.selectNextDays);
   }
 
   ngOnDestroy(): void {

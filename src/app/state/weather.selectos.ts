@@ -9,3 +9,4 @@ export const selectWeather = createSelector(selectState, state => state.weather)
 export const selectLoader = createSelector(selectState, state => state.loader);
 export const selectLocation = createSelector(selectState, state => state.location);
 export const selectNextDays = createSelector(selectState, state => state.nextDays);
+export const selectError = createSelector(selectState, state => state.error);

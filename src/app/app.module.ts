@@ -14,6 +14,7 @@ import * as Weather from './state/weather.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { WeatherEffects } from './state/weather.effects';
 import { LoaderComponent } from './loader/loader.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoaderComponent } from './loader/loader.component';
     CityBlockComponent,
     SearchComponent,
     NextDayComponent,
-    LoaderComponent
+    LoaderComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

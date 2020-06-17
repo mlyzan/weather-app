@@ -22,11 +22,11 @@ export const initialState: StateModel = {
 export const weatherReducer = createReducer(
     initialState,
     on(actions.getWeather, (state) => ({...state, loader: true })),
-    on(actions.getWeatherSuccess, (state, weather) => ({...state, loader: false, weather})),
+    on(actions.getWeatherSuccess, (state, weather) => ({...state, loader: false, weather, error: null})),
     on(actions.getWeatherFail, (state, {error}) => ({...state, loader: false, error})),
     on(actions.getLocation, (state) => ({...state, loader: true})),
     on(actions.getLocationSuccess, (state, location) => ({...state, location})),
-    on(actions.getWeatherByIdSuccess, (state, weather) => ({...state, weather, loader: false})),
+    on(actions.getWeatherByIdSuccess, (state, weather) => ({...state, weather, loader: false, error: null})),
     on(actions.getNextDays, (state, {list}) => {
         let nextDays = [];
             list.forEach(e => {

@@ -30,22 +30,3 @@
         }
     }
 }
-.search {
-}
-.search:focus {
-    outline: none;
-    border: none;
-}
-.search::placeholder {
-    color: #fff;
-}
-
-.btn {
-}
-.btn:hover {
-    cursor: pointer;
-}
-.btn:checked {
-    border: none;
-    outline: none;
-}

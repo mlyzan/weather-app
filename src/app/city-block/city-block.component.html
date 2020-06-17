@@ -2,24 +2,29 @@
     <app-loader></app-loader>
 </ng-container>
 <ng-template #content>
-    <section class="city_block">
-        <article class="today">
-            <div class="today_weather">
-                <div class="degrees"> {{ (data$ | async)?.list[0].main.temp - 273.15 | number:'1.0-0' }} &#176;</div>
-                <div class="cloud">{{(data$ | async)?.list[0].weather[0].main}}</div>
-                <div class="other-info">
-                    <div class="humidity">Humidity {{(data$ | async)?.list[0].main.humidity}}%</div>
-                    <div class="wind">Wind {{(data$ | async)?.list[0].wind.speed}}km</div>
+    <ng-container *ngIf="error$ | async; else weather">
+        <app-error></app-error>
+    </ng-container>
+    <ng-template #weather>
+        <section class="city_block">
+            <article class="today">
+                <div class="today_weather">
+                    <div class="degrees"> {{ (data$ | async)?.list[0].main.temp - 273.15 | number:'1.0-0' }} &#176;</div>
+                    <div class="cloud">{{(data$ | async)?.list[0].weather[0].main}}</div>
+                    <div class="other-info">
+                        <div class="humidity">Humidity {{(data$ | async)?.list[0].main.humidity}}%</div>
+                        <div class="wind">Wind {{(data$ | async)?.list[0].wind.speed}}km</div>
+                    </div>
                 </div>
-            </div>
-            <div class="city">
-                {{(data$ | async)?.city.name}}, {{(data$ | async)?.city.country}}
-            </div>
-        </article>
-        <article class="next-days">
-            <ng-container *ngFor="let day of nextDays$ | async">
-                <app-next-day [data]="day"></app-next-day>
-            </ng-container>
-        </article>
-    </section>
+                <div class="city">
+                    {{(data$ | async)?.city.name}}, {{(data$ | async)?.city.country}}
+                </div>
+            </article>
+            <article class="next-days">
+                <ng-container *ngFor="let day of nextDays$ | async">
+                    <app-next-day [data]="day"></app-next-day>
+                </ng-container>
+            </article>
+        </section>
+    </ng-template>
 </ng-template>

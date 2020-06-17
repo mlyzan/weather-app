@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as actions from '../state/weather.action';
 
@@ -7,12 +7,9 @@ import * as actions from '../state/weather.action';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   value = '';
   constructor(private store: Store) { }
-
-  ngOnInit(): void {
-  }
 
   changeInput(event: any): void {
     this.value = event.target.value;

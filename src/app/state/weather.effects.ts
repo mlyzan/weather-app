@@ -41,7 +41,8 @@ export class WeatherEffects {
         map(res => {
           this.store.dispatch(actions.getNextDays({list: res.list}));
           return actions.getWeatherByIdSuccess(res)
-        })
+        }),
+        catchError((error) => of(actions.getWeatherFail(error)) )
       ))
     )
   );

@@ -28,14 +28,8 @@ export const weatherReducer = createReducer(
     on(actions.getLocationSuccess, (state, location) => ({...state, location})),
     on(actions.getWeatherByIdSuccess, (state, weather) => ({...state, weather, loader: false, error: null})),
     on(actions.getNextDays, (state, {list}) => {
-        let nextDays = [];
-            list.forEach(e => {
-                if (e.dt_txt.indexOf('15:00:00') >= 0) {
-                nextDays.push(e)
-                }
-            });
         return {
-            ...state, nextDays
+            ...state, nextDays: list.filter(e => e.dt_txt.indexOf('15:00:00') >= 0)
         }
     })
 );
